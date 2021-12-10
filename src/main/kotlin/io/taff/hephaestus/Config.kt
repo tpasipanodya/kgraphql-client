@@ -38,4 +38,4 @@ object Config {
  * val configured = configure { logGraphqlClientRequests = true }
  * ```
  */
-fun configure(fxn: Config.() -> Unit) = fxn(Config).let { Config }
+fun configure(fxn: Config.() -> Unit) = Config.apply(fxn)

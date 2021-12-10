@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "io.taff"
-version = "0.3.0${ if (isReleaseBuild()) "" else "-SNAPSHOT" }"
+version = "0.1.0${ if (isReleaseBuild()) "" else "-SNAPSHOT" }"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -84,27 +84,18 @@ publishing {
 
 			pom {
 				name.set(project.name)
-				description.set("${project.name} $version - Lightweight utilities for simplifying backend application configuration")
-				url.set("https://github.com/tpasipanodya/hephaestus-graphql-client")
-
-				licenses {
-					license {
-						name.set("The Apache Software License, Version 2.0")
-						url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-					}
-				}
-
+				description.set("${project.name} $version - A Declarative graphql client for Kotlin")
+				url.set("https://github.com/tpasipanodya/kgraphql-client")
 				developers {
 					developer {
 						name.set("Tafadzwa Pasipanodya")
 						email.set("tmpasipanodya@gmail.com")
 					}
 				}
-
 				scm {
-					connection.set("scm:git:git://github.com/tpasipanodya/hephaestus-graphql-client.git")
-					developerConnection.set("scm:git:ssh://github.com/tpasipanodya/hephaestus-graphql-client.git")
-					url.set("http://github.com/tpasipanodya/hephaestus-graphql-client/tree/main")
+					connection.set("scm:git:git://github.com/tpasipanodya/kgraphql-client.git")
+					developerConnection.set("scm:git:ssh://github.com/tpasipanodya/kgraphql-client.git")
+					url.set("http://github.com/tpasipanodya/kgraphql-client/tree/main")
 				}
 			}
 

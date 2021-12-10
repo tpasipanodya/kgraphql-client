@@ -1,1 +1,1 @@
-rootProject.name = "hephaestus-graphql-client"
+rootProject.name = "kgraphql-client"

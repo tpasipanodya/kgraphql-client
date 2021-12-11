@@ -1,8 +1,8 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.result.Result
-import io.taff.hephaestus.Config
+import io.taff.kgraphql.client.Config
 import java.lang.IllegalStateException
 
 /**
@@ -70,9 +70,9 @@ class Client(private val config: ClientBuilder) {
      * Make a graphql call.
      */
     private fun operation(name: String,
-                           type: OperationType,
-                           runtimeHeaders: Map<String, Any> = mapOf(),
-                           queryBuilder: QueryMutationDSL.() -> Unit) = QueryMutationDSL(name, type)
+                          type: OperationType,
+                          runtimeHeaders: Map<String, Any> = mapOf(),
+                          queryBuilder: QueryMutationDSL.() -> Unit) = QueryMutationDSL(name, type)
         .apply(queryBuilder)
         .compile()
         .let { compiledQuery ->

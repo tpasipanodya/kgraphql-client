@@ -1,7 +1,7 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
-import io.taff.hephaestus.Config
-import io.taff.hephaestus.graphql.client.selections.Selection
+import io.taff.kgraphql.client.Config
+import io.taff.kgraphql.client.graphql.client.selections.Selection
 
 
 class QueryMutationDSL(var name: String, var type: OperationType) : Selection {

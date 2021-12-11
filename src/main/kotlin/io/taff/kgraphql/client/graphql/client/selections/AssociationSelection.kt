@@ -1,6 +1,6 @@
-package io.taff.hephaestus.graphql.client.selections
+package io.taff.kgraphql.client.graphql.client.selections
 
-import io.taff.hephaestus.graphql.client.Compilable
+import io.taff.kgraphql.client.graphql.client.Compilable
 
 /**
  * For selecting associations.

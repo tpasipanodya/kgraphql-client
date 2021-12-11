@@ -1,4 +1,4 @@
-package io.taff.hephaestus.helpers
+package io.taff.kgraphql.client.helpers
 
 /**
  * Returns true if this == null

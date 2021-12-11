@@ -1,8 +1,8 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
 import com.apurebase.kgraphql.KGraphQL
 import io.javalin.Javalin
-import io.taff.hephaestus.Config
+import io.taff.kgraphql.client.Config
 import kotlinx.coroutines.runBlocking
 import io.javalin.http.Context
 
@@ -91,13 +91,21 @@ class DummyRemoteService(val port: Int) {
     private fun resetWriters() {
         writers.clear()
 
-        writers.add(Writer("J,K Rowling",
-            mutableListOf(Publication.Book("Prisoner of Azkaban",
-                "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.\n..."))))
+        writers.add(
+            Writer("J,K Rowling",
+            mutableListOf(
+                Publication.Book("Prisoner of Azkaban",
+                "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.\n...")
+            ))
+        )
 
-        writers.add(Writer("Jay. Z",
-            mutableListOf(Publication.Song("Blueprint (2)",
-                "I will not lose, for even in defeat, there's a valuable lesson learned, so it evens up for me..."))))
+        writers.add(
+            Writer("Jay. Z",
+            mutableListOf(
+                Publication.Song("Blueprint (2)",
+                "I will not lose, for even in defeat, there's a valuable lesson learned, so it evens up for me...")
+            ))
+        )
     }
 
     /** Resets the webserver in-between tests */

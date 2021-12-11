@@ -1,4 +1,4 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
 /**
  * Compiler for segemnts of a graphql operation including the operation itself.

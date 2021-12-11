@@ -1,4 +1,4 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
 /**
  * The supported types of graphql operations.

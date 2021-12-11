@@ -1,12 +1,11 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
+import io.taff.spek.expekt.any.satisfy
+import io.taff.spek.expekt.iterable.beAnOrderedCollectionOf
+import io.taff.spek.expekt.should
 import org.spekframework.spek2.Spek
-import io.taff.hephaestustest.expectation.any.satisfy
-import io.taff.hephaestustest.expectation.iterable.beAnOrderedCollectionOf
-import io.taff.hephaestustest.expectation.should
-import io.taff.hephaestus.configure
+import io.taff.kgraphql.client.configure
 import org.spekframework.spek2.style.specification.describe
-
 
 
 class MutationSpek : Spek({
@@ -125,10 +124,12 @@ class MutationSpek : Spek({
 
         context("With iterable arguments") {
             val songInputs by memoized {
-                listOf(Publication.Song(
-                    title = "A Star Is Born",
-                    lyrics = "Everyday a star is born..."
-                ))
+                listOf(
+                    Publication.Song(
+                        title = "A Star Is Born",
+                        lyrics = "Everyday a star is born..."
+                    )
+                )
             }
             val result by memoized {
                 remoteService1.client.mutation("addSongs") {
@@ -165,10 +166,12 @@ class MutationSpek : Spek({
 
             context("with multiple services") {
                 val otherSongInputs by memoized {
-                    listOf(Publication.Song(
-                        title = "Hard Knock Life",
-                        lyrics = "It's a hard-knock life for us..."
-                    ))
+                    listOf(
+                        Publication.Song(
+                            title = "Hard Knock Life",
+                            lyrics = "It's a hard-knock life for us..."
+                        )
+                    )
                 }
                 val otherResult by memoized {
                     remoteService2.client.mutation("addSongs") {

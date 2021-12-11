@@ -1,4 +1,4 @@
-package io.taff.hephaestus
+package io.taff.kgraphql.client
 
 import com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
@@ -11,7 +11,7 @@ object Config {
 	/**
 	 * Used for all logging.
 	 */
-	val logger = NamedKLogging("hephaestus").logger
+	val logger = NamedKLogging("kgraphql-client").logger
 
 	/**
 	 * Whether graphql requests to other services should be logged.
@@ -33,7 +33,8 @@ object Config {
 }
 
 /**
- * Configure Hephaestus, e.g:
+ * Configure the client, e.g:
+ *
  * ```
  * val configured = configure { logGraphqlClientRequests = true }
  * ```

@@ -1,4 +1,4 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter

@@ -1,10 +1,10 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
-import io.taff.hephaestustest.expectation.any.satisfy
-import io.taff.hephaestustest.expectation.iterable.beAnOrderedCollectionOf
-import io.taff.hephaestustest.expectation.map.beAMapOf
-import io.taff.hephaestustest.expectation.should
-import io.taff.hephaestus.configure
+import io.taff.spek.expekt.any.satisfy
+import io.taff.spek.expekt.iterable.beAnOrderedCollectionOf
+import io.taff.spek.expekt.map.beAMapOf
+import io.taff.spek.expekt.should
+import io.taff.kgraphql.client.configure
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 

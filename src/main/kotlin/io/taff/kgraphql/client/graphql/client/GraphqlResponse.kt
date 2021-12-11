@@ -1,8 +1,8 @@
-package io.taff.hephaestus.graphql.client
+package io.taff.kgraphql.client.graphql.client
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.github.kittinunf.fuel.core.Response
-import io.taff.hephaestus.Config
+import io.taff.kgraphql.client.Config
 
 /**
  * Represents the response from performing a graphql opeartion.

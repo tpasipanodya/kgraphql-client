@@ -33,13 +33,20 @@ class GraphqlResponse(val operationName: String, val _response: Response) {
     /**
      *
      */
-    fun errors(contentType: String = "application/json") = bodyAsString(contentType)
+    fun <T> errors(contentType: String = "application/json") = bodyAsString(contentType)
         .let {
-            Config.objectMapper.readValue(
-                it,
-                object : TypeReference<Map<String, Any?>>() {}
-            )
-        }.let { it["errors"] as Map<String, List<String>?>? }
+            Config.objectMapper
+                .readValue(it, object : TypeReference<Map<String, Any?>>() {})
+        }.let { response ->
+            response["errors"]?.let { safeErrors ->
+                Config.objectMapper
+                    .writeValueAsString(safeErrors)
+                    .let { errorString ->
+                        Config.objectMapper
+                            .readValue(errorString, object: TypeReference<T?>(){})
+                    }
+            }
+        }
 
     /**
      * Parse the query/mutation's result to a map.

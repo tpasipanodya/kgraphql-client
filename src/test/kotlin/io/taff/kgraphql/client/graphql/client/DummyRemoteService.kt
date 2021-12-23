@@ -9,7 +9,7 @@ import io.javalin.http.Context
 /** A writer can have multiple publications */
 data class Writer(val name: String, val publications: MutableList<Publication>)
 
-/** Publications have diffrerent characteristics but share a title */
+/** Publications have different characteristics but share a title */
 sealed class Publication(open val title: String) {
     data class Book(override val title: String, val text: String) : Publication(title)
     data class Song(override val title: String, val lyrics: String) : Publication(title)

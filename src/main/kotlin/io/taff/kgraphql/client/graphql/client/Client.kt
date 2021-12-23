@@ -10,9 +10,7 @@ import java.lang.IllegalStateException
  */
 class Client(private val config: ClientBuilder) {
 
-    companion object {
-        fun new() = ClientBuilder()
-    }
+    companion object { fun new() = ClientBuilder() }
 
     /**
      * Perform a graphql query.
@@ -33,12 +31,11 @@ class Client(private val config: ClientBuilder) {
      */
     fun query(name: String,
               runtimeHeaders: Map<String, Any> = mapOf(),
-              queryBuilder: QueryMutationDSL.() -> Unit = {}) = operation(
-        name = name,
-        type = OperationType.QUERY,
-        queryBuilder = queryBuilder,
-        runtimeHeaders = runtimeHeaders,
-    )
+              queryBuilder: QueryMutationDSL.() -> Unit = {}) =
+        operation(name = name,
+            type = OperationType.QUERY,
+            queryBuilder = queryBuilder,
+            runtimeHeaders = runtimeHeaders)
 
     /**
      * Perform a graphql mutation.
@@ -59,12 +56,11 @@ class Client(private val config: ClientBuilder) {
      */
     fun mutation(name: String,
                  runtimeHeaders: Map<String, Any> = mapOf(),
-                 queryBuilder: QueryMutationDSL.() -> Unit = {}) = operation(
-        name = name,
-        type = OperationType.MUTATION,
-        queryBuilder = queryBuilder,
-        runtimeHeaders = runtimeHeaders,
-    )
+                 queryBuilder: QueryMutationDSL.() -> Unit = {}) =
+        operation(name = name,
+            type = OperationType.MUTATION,
+            queryBuilder = queryBuilder,
+            runtimeHeaders = runtimeHeaders)
 
     /**
      * Make a graphql call.
@@ -77,24 +73,16 @@ class Client(private val config: ClientBuilder) {
         .compile()
         .let { compiledQuery ->
             val headers = config.headers + runtimeHeaders
-            if (Config.logGraphqlClientRequests) {
-                Config.logger.info {
-                    "\n\tquery: $compiledQuery ${
-                    if (Config.logGraphqlClientRequestHeaders) "\n\theaders: $headers"
-                    else ""
-                }"
-                }
-            }
             config.url
                 .httpPost()
                 .body(compiledQuery)
                 .header(headers)
+                .also { Config.onRequest(it) }
                 .responseString { _, response, result ->
+                    Config.onResponse(response, result)
                     when (result) {
                         is Result.Failure -> throw result.getException()
-
                         is Result.Success -> result.get()
-
                         else -> throw IllegalStateException("Unknown result $result")
                     }
                 }.join()

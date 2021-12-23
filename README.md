@@ -53,8 +53,18 @@ val author = query.resultAs<Author>()
 /** Or as JSON (maps & lists) */
 val authorJson = query.resultAs<Map<String, Any>>()
 
-/** You can also customize how the response will be deserialized via Jackson object mappers */
-configure { objectMapper = myCustomObjectMapper }
+configure {
+    
+    /** You can also customize how the response will be deserialized via Jackson object mappers */
+    objectMapper = myCustomObjectMapper
+
+    /** Or capture the underlying fuel request & response, e.g for logging purposes */
+    onRequest = { request: Request -> println(request) }
+    onResponse = { response: response, result: result -> 
+        println("response: $response, result: $result") 
+    }
+}
+
 ```
 
 ## License

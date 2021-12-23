@@ -10,7 +10,10 @@ import org.spekframework.spek2.style.specification.describe
 
 class MutationSpek : Spek({
 
-    configure { logGraphqlClientRequests = true }
+    configure {
+        onRequest  = { println("Running the following: \n\t$it") }
+        onResponse =  { response, result -> println("Got the following result: $result \n\tand response: $response") }
+    }
 
     val remoteService1 = DummyRemoteService( 5577)
     val remoteService2 = DummyRemoteService( 7755)

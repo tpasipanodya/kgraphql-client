@@ -10,7 +10,7 @@ import com.github.kittinunf.result.Result
 
 object Config {
 
-	/** */
+	/** Called before a request is executed */
 	var onRequest: (request: Request) -> Unit = { _ -> }
 
 	/** Called after a request has been executed */

@@ -1,7 +1,7 @@
 package io.taff.kgraphql.client.graphql.client
 
 import io.taff.spek.expekt.any.satisfy
-import io.taff.spek.expekt.iterable.beAnOrderedCollectionOf
+import io.taff.spek.expekt.iterable.containInOrder
 import io.taff.spek.expekt.map.beAMapOf
 import io.taff.spek.expekt.should
 import io.taff.kgraphql.client.configure
@@ -116,7 +116,7 @@ object QuerySpek : Spek({
             it("successfully loads") {
                 result should satisfy { size == 2 }
 
-                result should beAnOrderedCollectionOf(
+                result should containInOrder(
                     *remoteService1.writers.map { writer ->
                         mapOf(
                             "name" to writer.name,
@@ -149,7 +149,7 @@ object QuerySpek : Spek({
 
                 it("successfully loads") {
                     result should satisfy { size == 2 }
-                    result should beAnOrderedCollectionOf(
+                    result should containInOrder(
                         mapOf(
                             "name" to writer.name,
                             "publications" to writer.publications.map { publication ->
@@ -165,7 +165,7 @@ object QuerySpek : Spek({
                     )
 
                     otherRsult should satisfy { size == 1 }
-                    otherRsult should beAnOrderedCollectionOf(
+                    otherRsult should containInOrder(
                         mapOf(
                             "name" to otherWriter.name,
                             "publications" to otherWriter.publications.map { publication ->
@@ -193,7 +193,7 @@ object QuerySpek : Spek({
 
         it("correctly parses the response") {
             result should satisfy { size == 1 }
-            result should beAnOrderedCollectionOf(*remoteService1.writers[1].publications.toTypedArray())
+            result should containInOrder(*remoteService1.writers[1].publications.toTypedArray())
         }
     }
 })

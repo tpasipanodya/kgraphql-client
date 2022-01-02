@@ -1,7 +1,7 @@
 package io.taff.kgraphql.client.graphql.client
 
 import io.taff.spek.expekt.any.satisfy
-import io.taff.spek.expekt.iterable.beAnOrderedCollectionOf
+import io.taff.spek.expekt.iterable.containInOrder
 import io.taff.spek.expekt.should
 import org.spekframework.spek2.Spek
 import io.taff.kgraphql.client.configure
@@ -46,7 +46,7 @@ class MutationSpek : Spek({
             it("successfully loads") {
                 result[0]["publications"] as List<*> should satisfy { size == 2 }
                 result[1]["publications"] as List<*> should satisfy { size == 1 }
-                result should beAnOrderedCollectionOf(
+                result should containInOrder(
                     *remoteService1.writers.map { writer ->
                         mapOf(
                             "name" to writer.name,
@@ -86,7 +86,7 @@ class MutationSpek : Spek({
                 it("successfully loads") {
                     result[0]["publications"] as List<*> should satisfy { size == 2 }
                     result[1]["publications"] as List<*> should satisfy { size == 1 }
-                    result should beAnOrderedCollectionOf(
+                    result should containInOrder(
                         *remoteService1.writers.map { writer ->
                             mapOf(
                                 "name" to writer.name,
@@ -105,7 +105,7 @@ class MutationSpek : Spek({
 
                     otherResult[0]["publications"] as List<*> should satisfy { size == 2 }
                     otherResult[1]["publications"] as List<*> should satisfy { size == 1 }
-                    otherResult should beAnOrderedCollectionOf(
+                    otherResult should containInOrder(
                         *remoteService2.writers.map { writer ->
                             mapOf(
                                 "name" to writer.name,
@@ -149,7 +149,7 @@ class MutationSpek : Spek({
             it("successfully loads") {
                 result[0]["publications"] as List<*> should satisfy { size == 1 }
                 result[1]["publications"] as List<*> should satisfy { size == 2 }
-                result should beAnOrderedCollectionOf(
+                result should containInOrder(
                     *remoteService1.writers.map { writer ->
                         mapOf(
                             "name" to writer.name,
@@ -191,7 +191,7 @@ class MutationSpek : Spek({
                 it("successfully loads") {
                     result[0]["publications"] as List<*> should satisfy { size == 1 }
                     result[1]["publications"] as List<*> should satisfy { size == 2 }
-                    result should beAnOrderedCollectionOf(
+                    result should containInOrder(
                         *remoteService1.writers.map { writer ->
                             mapOf(
                                 "name" to writer.name,
@@ -210,7 +210,7 @@ class MutationSpek : Spek({
 
                     otherResult[0]["publications"] as List<*> should satisfy { size == 1 }
                     otherResult[1]["publications"] as List<*> should satisfy { size == 2 }
-                    otherResult should beAnOrderedCollectionOf(
+                    otherResult should containInOrder(
                         *remoteService2.writers.map { writer ->
                             mapOf(
                                 "name" to writer.name,

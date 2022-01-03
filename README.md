@@ -1,5 +1,5 @@
 # kgraphql-client
-![Build](https://github.com/tpasipanodya/kgraphql-client/actions/workflows/.github/workflows/release.yml/badge.svg)
+![Build](https://github.com/tpasipanodya/kgraphql-client/actions/workflows/.github/workflows/cicd.yml/badge.svg)
 
 A light-weight, declarative GraphQL client for Kotlin.
 

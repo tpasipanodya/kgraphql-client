@@ -110,7 +110,7 @@ artifactory {
 
 		repository(delegateClosureOf<GroovyObject> {
 			setProperty("repoKey", if (isReleaseBuild()) "releases" else "snapshots")
-			setProperty("username", System.getenv("ARTIFACTORY_USER"))
+			setProperty("username", System.getenv("ARTIFACTORY_USERNAME"))
 			setProperty("password", System.getenv("ARTIFACTORY_PASSWORD"))
 			setProperty("maven", true)
 		})

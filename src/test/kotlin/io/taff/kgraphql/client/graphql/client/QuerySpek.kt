@@ -2,9 +2,9 @@ package io.taff.kgraphql.client.graphql.client
 
 import io.taff.spek.expekt.any.satisfy
 import io.taff.spek.expekt.iterable.containInOrder
-import io.taff.spek.expekt.map.beAMapOf
 import io.taff.spek.expekt.should
 import io.taff.kgraphql.client.configure
+import io.taff.spek.expekt.map.contain
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
@@ -44,7 +44,7 @@ object QuerySpek : Spek({
                 it("successfully loads") {
                     result should satisfy { size == 2 }
 
-                    result should beAMapOf(
+                    result should contain(
                         "name" to writer.name,
                         "publications" to writer.publications.map { publication ->
                             mapOf(
@@ -71,7 +71,7 @@ object QuerySpek : Spek({
                     }
 
                     it("successfully loads") {
-                        result should beAMapOf(
+                        result should contain(
                             "name" to writer.name,
                             "publications" to writer.publications.map { publication ->
                                 mapOf(
@@ -84,7 +84,7 @@ object QuerySpek : Spek({
                             }
                         )
 
-                        otherResult should beAMapOf(
+                        otherResult should contain(
                             "name" to otherWriter.name,
                             "publications" to otherWriter.publications.map { publication ->
                                 mapOf(

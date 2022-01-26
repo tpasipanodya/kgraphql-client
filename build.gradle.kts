@@ -33,7 +33,7 @@ dependencies {
 	runtimeOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	api("com.github.kittinunf.fuel:fuel:2.3.1")
 	api("com.github.kittinunf.fuel:fuel-coroutines:2.3.1")
-	api("org.slf4j:slf4j-simple:1.7.34")
+	api("org.slf4j:slf4j-simple:1.7.35")
 	api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
 	api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.1")
 	testImplementation("io.taff:spek-expekt:0.7.0")

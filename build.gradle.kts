@@ -35,7 +35,7 @@ dependencies {
 	api("com.github.kittinunf.fuel:fuel-coroutines:2.3.1")
 	api("org.slf4j:slf4j-simple:1.7.36")
 	api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
-	api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.1")
+	api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.2")
 	testImplementation("io.taff:spek-expekt:0.7.0")
 	testImplementation(enforcedPlatform("org.junit:junit-bom:5.8.2"))
 	testImplementation("com.apurebase:kgraphql:0.17.14")

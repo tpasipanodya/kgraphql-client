@@ -5,7 +5,7 @@ import groovy.lang.GroovyObject
 
 plugins {
 	kotlin("jvm") version "1.6.10"
-	id("com.jfrog.artifactory") version "4.27.1"
+	id("com.jfrog.artifactory") version "4.28.1"
 	id("org.jetbrains.dokka") version "1.6.10"
 	id("maven-publish")
 	idea
@@ -34,12 +34,12 @@ dependencies {
 	api("com.github.kittinunf.fuel:fuel:2.3.1")
 	api("com.github.kittinunf.fuel:fuel-coroutines:2.3.1")
 	api("org.slf4j:slf4j-simple:1.7.36")
-	api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
-	api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.1")
-	testImplementation("io.taff:spek-expekt:0.7.1")
+	api("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.2")
+	api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.2")
+	testImplementation("io.taff:spek-expekt:0.7.2")
 	testImplementation(enforcedPlatform("org.junit:junit-bom:5.8.2"))
 	testImplementation("com.apurebase:kgraphql:0.17.14")
-	testImplementation("io.javalin:javalin:4.3.0")
+	testImplementation("io.javalin:javalin:4.4.0")
 }
 
 tasks.withType<KotlinCompile> {

@@ -39,7 +39,7 @@ dependencies {
 	testImplementation("io.taff:spek-expekt:0.7.2")
 	testImplementation(enforcedPlatform("org.junit:junit-bom:5.8.2"))
 	testImplementation("com.apurebase:kgraphql:0.17.14")
-	testImplementation("io.javalin:javalin:4.5.0")
+	testImplementation("io.javalin:javalin:4.6.0")
 }
 
 tasks.withType<KotlinCompile> {

@@ -18,7 +18,7 @@ and whistles. There are several other great libraries like Expedia's
 To Download:
 
 ```kotlin
-implementation("io.taff:kgraphql-client:0.5.5")
+implementation("io.taff:kgraphql-client:0.5.6")
 ```
 
 Given a graphql service hosted at `http://fancyservice.com/graphql` with the schema:
